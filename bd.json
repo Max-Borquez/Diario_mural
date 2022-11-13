@@ -14,12 +14,18 @@
         },
         "categoria":{
             "nombre":{
-                "type":"String",
-                "required":true
+                "type":"Schema.ObjectId",
+                "ref": "categoria"
             }
         },
         "rut":{
             "type":"String",
+            "required":true
+        }
+    },
+    "categoria": {
+        "nombre": {
+            "type": "String",
             "required":true
         }
     }
