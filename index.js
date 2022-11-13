@@ -8,12 +8,9 @@ app.listen(process.env.PORT, () => {
     console.log("El proyecto esta corriendo en el puerto => ", process.env.PORT);
 });
 
-//const productRoutes = require("./routes/productRoutes");
-
 app.use(cors());
 app.use(express.json());
 app.options("*", cors());
-//app.use("/api", productRoutes);
 
 mongoose.set("useFindAndModify", false);
 mongoose.set("useNewUrlParser", true);
