@@ -4,6 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
+const publicacionRoutes = require('./routes/publicacionRoutes');
 
 app.listen(process.env.PORT, () => {
     console.log("El proyecto esta corriendo en el puerto => ", process.env.PORT);
@@ -12,6 +13,7 @@ app.listen(process.env.PORT, () => {
 app.use(cors());
 app.use(express.json());
 app.options("*", cors());
+app.use('/api', publicacionRoutes);
 
 mongoose.set("useFindAndModify", false);
 mongoose.set("useNewUrlParser", true);
