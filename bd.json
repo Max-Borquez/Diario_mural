@@ -12,21 +12,31 @@
             "type":"String",
             "required":true
         },
-        "categoria":{
-            "nombre":{
-                "type":"Schema.ObjectId",
-                "ref": "categoria"
-            }
-        },
         "rut":{
             "type":"String",
             "required":true
+        },
+        "categoria":{
+            "type":"Schema.ObjectID",
+            "ref":"categoria"
+        },
+        "fecha":{
+            "type": "date",
+            "default": "date.now()"
         }
     },
-    "categoria": {
-        "nombre": {
-            "type": "String",
+    "comentario":{
+        "nombre":{
+            "type":"String",
             "required":true
+        },
+        "descripcion":{
+            "type":"String",
+            "required":true
+        },
+        "fecha":{
+            "type": "date",
+            "default": "date.now()"
         }
     }
 }

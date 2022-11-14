@@ -36,3 +36,6 @@ const PublicacionSchema = new Schema({
 });
 
 module.exports = mongoose.model("publicacion", PublicacionSchema);
+
+
+
