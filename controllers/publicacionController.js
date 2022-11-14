@@ -11,7 +11,7 @@ const createPublicacion = (req, res) => {
     domicilio
   });
 
-  newPublicacion.save((err, publicacion) => {
+newPublicacion.save((err, publicacion) => {
     if (err) {
       return res.status(400).send({ message: "Error al crear la publicacion" });
     }

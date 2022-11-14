@@ -8,12 +8,13 @@ const ComentarioSchema = new Schema({
     },
     descripcion:{
         type: String,
-        requierd: true
-    },
+        required: true
+    }
     /*
     fecha:{
         type: Date,
         default: Date.now()
     }*/
-})
+});
+
 module.exports = mongoose.model("comentario", ComentarioSchema);
