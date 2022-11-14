@@ -1,9 +1,9 @@
 const express = require('express');
 const api = express.Router();
 
-const ComentarioController = require('../controllers/ComentarioController');
+const comentarioController = require('../controllers/comentarioController');
 
-api.post('/comentario', ComentarioController.createComentario);
-api.get('/publicaciones', ComentarioController.getComentario);
+api.post('/comentario', comentarioController.createComentario);
+api.get('/comentarios', comentarioController.getComentarios);
 
 module.exports = api;
