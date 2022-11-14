@@ -1,4 +1,4 @@
-const Comentario = require("../models/ComentarioModel");
+const Comentario = require("../models/comentarioModel");
 
 const createComentario = (req, res) => {
 const { nombre, descripcion} = req.body;
@@ -15,7 +15,7 @@ newComentario.save((err, comentario) => {
 });
 };
 
-const getComentario = (req, res) => {
+const getComentarios = (req, res) => {
 Comentario.find({}, (err, comentario) => {
     if (err) {
         return res.status(400).send({ message: "Error al obtener el comentario" });
@@ -26,5 +26,5 @@ Comentario.find({}, (err, comentario) => {
 
 module.exports = {
 createComentario,
-getComentario,
+getComentarios,
 };
