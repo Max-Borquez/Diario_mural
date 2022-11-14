@@ -6,6 +6,7 @@ require('dotenv').config();
 const app = express();
 const publicacionRoutes = require('./routes/publicacionRoutes');
 const comentarioRoutes = require('./routes/comentarioRoutes');
+const reporteRoutes = require('./routes/reporteRoutes');
 
 app.listen(process.env.PORT, () => {
     console.log("El proyecto esta corriendo en el puerto => ", process.env.PORT);
@@ -16,6 +17,7 @@ app.use(express.json());
 app.options("*", cors());
 app.use('/api', publicacionRoutes);
 app.use('/api', comentarioRoutes);
+app.use('/api', reporteRoutes);
 
 mongoose.set("useFindAndModify", false);
 mongoose.set("useNewUrlParser", true);

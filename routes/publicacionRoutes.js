@@ -8,4 +8,3 @@ api.get('/publicaciones', publicacionController.getPublicaciones);
 api.delete('/publicacion/delete/:id', publicacionController.deletePublicacion);
 
 module.exports = api;
-

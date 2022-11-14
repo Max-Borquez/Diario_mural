@@ -16,4 +16,4 @@ const reporteSchema = new Schema({
         default: Date.now()
     }*/
 });
-module.exports = mongoose.model("comentario", reporteSchema);
+module.exports = mongoose.model("reporte", reporteSchema);
