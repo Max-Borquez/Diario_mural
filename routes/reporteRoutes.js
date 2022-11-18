@@ -4,6 +4,6 @@ const api = express.Router();
 const ReporteController = require('../controllers/reporteController');
 
 api.post('/reporte', ReporteController.createReporte);
-api.get('/reporte', ReporteController.getReporte);
+api.get('/reportes', ReporteController.getReporte);
 
 module.exports = api;

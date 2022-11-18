@@ -1,8 +1,8 @@
-const reporte = require("../models/reporteModel");
+const Reporte = require("../models/reporteModel");
 
 const createReporte = (req, res) => {
   const { nombre, descripcion } = req.body;
-  const newReporte = new reporte({
+  const newReporte = new Reporte({
     nombre,
     descripcion
   });
