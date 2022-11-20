@@ -1,10 +1,10 @@
 const Publicacion = require("../models/publicacionModel");
 
 const createPublicacion = (req, res) => {
-  const { titulo, publicador, descripcion, rut, correo, domicilio } = req.body;
+  const { titulo, autor, descripcion, rut, correo, domicilio } = req.body;
   const newPublicacion = new Publicacion({
     titulo,
-    publicador,
+    autor,
     descripcion,
     rut,
     correo,
@@ -44,6 +44,6 @@ const deletePublicacion = (req, res) => {
 module.exports = {
   createPublicacion,
   getPublicaciones,
-  deletePublicacion,
+  deletePublicacion
 };
 

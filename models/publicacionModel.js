@@ -5,7 +5,7 @@ const PublicacionSchema = new Schema({
     type: String,
     required: true,
   },
-  publicador: {
+  autor: {
     type: String,
     required: true,
   },

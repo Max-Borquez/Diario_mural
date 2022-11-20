@@ -1,9 +1,10 @@
 const express = require('express');
 const api = express.Router();
 
-const ReporteController = require('../controllers/reporteController');
+const reporteController = require('../controllers/reporteController');
 
-api.post('/reporte', ReporteController.createReporte);
-api.get('/reportes', ReporteController.getReporte);
+api.post('/reporte', reporteController.createReporte);
+api.get('/reportes', reporteController.getReporte);
+api.delete('/reporte/delete/:id', reporteController.deleteReporte);
 
 module.exports = api;
