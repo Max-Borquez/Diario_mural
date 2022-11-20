@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Publicacion = mongoose.model("publicacion");
 
 const reporteSchema = new Schema({
     nombre:{
@@ -9,6 +10,10 @@ const reporteSchema = new Schema({
     descripcion:{
         type: String,
         required: true
+    },
+    publicacion_reportada: {
+        type: Schema.ObjectId,
+        ref: "publicacion"
     }
     /*
     fecha:{
