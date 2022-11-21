@@ -24,14 +24,14 @@ const PublicacionSchema = new Schema({
   domicilio: {
     type: String,
     required: true
+  },
+  categoria: {
+    type: Schema.ObjectId,
+    ref: "categoria"
   }/*,
   fecha: {
     type: Date,
     default: Date.now()
-  },
-  categoria: {
-    type: Schema.ObjectId,
-    ref: "categoria",
   }*/
 });
 

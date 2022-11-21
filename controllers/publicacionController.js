@@ -1,14 +1,15 @@
 const Publicacion = require("../models/publicacionModel");
 
 const createPublicacion = (req, res) => {
-  const { titulo, autor, descripcion, rut, correo, domicilio } = req.body;
+  const { titulo, autor, descripcion, rut, correo, domicilio, categoria } = req.body;
   const newPublicacion = new Publicacion({
     titulo,
     autor,
     descripcion,
     rut,
     correo,
-    domicilio
+    domicilio,
+    categoria
   });
 
 newPublicacion.save((err, publicacion) => {
@@ -20,9 +21,22 @@ newPublicacion.save((err, publicacion) => {
 };
 
 const getPublicaciones = (req, res) => {
-  Publicacion.find({}, (err, publicacion) => {
+  Publicacion.find({}).populate({path: 'categoria' }).exec( (err, publicacion) => {
     if (err) {
       return res.status(400).send({ message: "Error al obtener la publicacion" });
+    }
+    return res.status(200).send(publicacion);
+  });
+};
+
+const updatePublicacion = (req, res) => {
+  const { id } = req.params;
+  Publicacion.findByIdAndUpdate(id, req.body, (err, publicacion) => {
+    if (err) {
+      return res.status(400).send({ message: "Error al obtener la publicacion" });
+    }
+    if(!publicacion) {
+      return res.status(404).send({ message: "Publicacion no encontrada" });
     }
     return res.status(200).send(publicacion);
   });
@@ -44,6 +58,7 @@ const deletePublicacion = (req, res) => {
 module.exports = {
   createPublicacion,
   getPublicaciones,
+  updatePublicacion,
   deletePublicacion
 };
 

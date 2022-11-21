@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Publicacion = mongoose.model("publicacion");
 
-const reporteSchema = new Schema({
+const ReporteSchema = new Schema({
     nombre:{
         type : String,
         required: true
@@ -21,4 +21,4 @@ const reporteSchema = new Schema({
         default: Date.now()
     }*/
 });
-module.exports = mongoose.model("reporte", reporteSchema);
+module.exports = mongoose.model("reporte", ReporteSchema);

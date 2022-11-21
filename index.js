@@ -7,6 +7,7 @@ const app = express();
 const publicacionRoutes = require('./routes/publicacionRoutes');
 const comentarioRoutes = require('./routes/comentarioRoutes');
 const reporteRoutes = require('./routes/reporteRoutes');
+const categoriaRoutes = require('./routes/categoriaRoutes');
 
 app.listen(process.env.PORT, () => {
     console.log("El proyecto esta corriendo en el puerto => ", process.env.PORT);
@@ -18,6 +19,7 @@ app.options("*", cors());
 app.use('/api', publicacionRoutes);
 app.use('/api', comentarioRoutes);
 app.use('/api', reporteRoutes);
+app.use('/api', categoriaRoutes);
 
 mongoose.set("useFindAndModify", false);
 mongoose.set("useNewUrlParser", true);
