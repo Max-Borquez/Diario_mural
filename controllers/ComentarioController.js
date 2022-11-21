@@ -1,5 +1,5 @@
 const Comentario = require("../models/comentarioModel");
-const Publicacion = require("../models/publicacionModel");
+//const Publicacion = require("../models/publicacionModel");
 
 const createComentario = (req, res) => {
   const { nombre, descripcion, publicacion_comentada } = req.body;
