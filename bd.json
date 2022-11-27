@@ -38,5 +38,19 @@
             "type": "date",
             "default": "date.now()"
         }
+    },
+    "reporte":{
+        "nombre":{
+            "type":"String",
+            "required":true
+        },
+        "descripcion":{
+            "type":"String",
+            "required":true
+        },
+        "fecha":{
+            "type": "date",
+            "default": "date.now()"
+        }
     }
 }

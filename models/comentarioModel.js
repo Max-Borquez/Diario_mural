@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Publicacion = mongoose.model("publicacion");
 
 const ComentarioSchema = new Schema({
     nombre:{
@@ -9,6 +10,10 @@ const ComentarioSchema = new Schema({
     descripcion:{
         type: String,
         required: true
+    },
+    publicacion_comentada: {
+        type: Schema.ObjectId,
+        ref: "publicacion"
     }
     /*
     fecha:{
