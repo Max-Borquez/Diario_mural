@@ -28,11 +28,11 @@ const PublicacionSchema = new Schema({
   categoria: {
     type: Schema.ObjectId,
     ref: "categoria"
-  }/*,
+  },
   fecha: {
     type: Date,
     default: Date.now()
-  }*/
+  }
 });
 
 module.exports = mongoose.model("publicacion", PublicacionSchema);
