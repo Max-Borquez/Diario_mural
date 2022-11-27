@@ -14,12 +14,11 @@ const ComentarioSchema = new Schema({
     publicacion_comentada: {
         type: Schema.ObjectId,
         ref: "publicacion"
-    }
-    /*
+    },
     fecha:{
         type: Date,
         default: Date.now()
-    }*/
+    }
 });
 
 module.exports = mongoose.model("comentario", ComentarioSchema);
