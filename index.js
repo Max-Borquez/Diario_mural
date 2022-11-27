@@ -16,13 +16,10 @@ app.listen(process.env.PORT, () => {
 app.use(cors());
 app.use(express.json());
 app.options("*", cors());
-<<<<<<< HEAD
-=======
 app.use('/api', publicacionRoutes);
 app.use('/api', comentarioRoutes);
 app.use('/api', reporteRoutes);
 app.use('/api', categoriaRoutes);
->>>>>>> 93890319c041e5b5c0641a983bf4a86ff14cfc0f
 
 mongoose.set("useFindAndModify", false);
 mongoose.set("useNewUrlParser", true);
