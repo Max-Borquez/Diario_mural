@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config();
+
 
 const app = express();
 const publicacionRoutes = require('./routes/publicacionRoutes');
@@ -14,8 +14,6 @@ app.listen(process.env.PORT, () => {
 app.use(cors());
 app.use(express.json());
 app.options("*", cors());
-app.use('/api', publicacionRoutes);
-app.use('/api', comentarioRoutes);
 
 mongoose.set("useFindAndModify", false);
 mongoose.set("useNewUrlParser", true);
