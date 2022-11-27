@@ -1,7 +1,7 @@
 const Publicacion = require("../models/publicacionModel");
 
 const createPublicacion = (req, res) => {
-  const { titulo, autor, descripcion, rut, correo, domicilio, categoria } = req.body;
+  const { titulo, autor, descripcion, rut, correo, domicilio, categoria, fecha } = req.body;
   const newPublicacion = new Publicacion({
     titulo,
     autor,
@@ -9,7 +9,8 @@ const createPublicacion = (req, res) => {
     rut,
     correo,
     domicilio,
-    categoria
+    categoria,
+    fecha
   });
 
   newPublicacion.save((err, publicacion) => {
