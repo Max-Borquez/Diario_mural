@@ -36,8 +36,22 @@ const deleteCategoria = (req, res) => {
   });
 };
 
+const updateCategoria = (req, res) => {
+  const { id } = req.params;
+  Categoria.findByIdAndUpdate(id, req.body, (err, categoria) => {
+    if (err) {
+      return res.status(400).send({ message: "Error al obtener la categoria" });
+    }
+    if(!categoria) {
+      return res.status(404).send({ message: "Categoria no encontrada" });
+    }
+    return res.status(200).send(categoria);
+  });
+};
+
 module.exports = {
   createCategoria,
   getCategorias,
-  deleteCategoria
+  deleteCategoria,
+  updateCategoria
 };
