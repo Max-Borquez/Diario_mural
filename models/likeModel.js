@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const likeSchema = new Schema({
+const LikeSchema = new Schema({
     rut: {
         type: Schema.ObjectId,
         ref: "usario"
@@ -10,3 +10,5 @@ const likeSchema = new Schema({
         ref : "publicacion"
     }
 })
+
+module.exports = mongoose.model("like", LikeSchema);
