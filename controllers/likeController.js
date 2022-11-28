@@ -1,4 +1,4 @@
-const likeModel = require("../models/likeModel");
+const Like = require("../models/likeModel");
 
 const createlike = (req, res) => {
     const { rut,publicacion } = req.body;
