@@ -7,6 +7,10 @@ const ComentarioSchema = new Schema({
         type : String,
         required: true
     },
+    rut:{
+        type: Schema.ObjectId,
+        ref: "usuario"
+    },
     descripcion:{
         type: String,
         required: true

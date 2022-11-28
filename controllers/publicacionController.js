@@ -24,7 +24,7 @@ newPublicacion.save((err, publicacion) => {
 const getPublicaciones = (req, res) => {
   Publicacion.find({}).populate({path: 'categoria' }).exec( (err, publicacion) => {
     if (err) {
-      return res.status(400).send({ message: "Error al obtener la publicacion" });
+      return res.status(400).send({ message: "Error al obtener las publicaciones" });
     }
     return res.status(200).send(publicacion);
   });

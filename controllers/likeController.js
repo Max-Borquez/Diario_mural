@@ -14,3 +14,17 @@ const createlike = (req, res) => {
         return res.status(201).send(like);
     });
 };
+
+const getLikes = (req, res) => {
+    Like.find ({}).populate({path: 'rut publicacion' }).exec( (err, like) => {
+        if (err) {
+            return res.status(400).send({ message: "Error al obtener los likes" });
+        }
+        return res.status(200).send(like);
+    });
+};
+
+module.exports = {
+    createlike,
+    getLikes,
+}
