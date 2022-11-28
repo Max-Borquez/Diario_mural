@@ -1,6 +1,6 @@
 const usuarioModel = require("../models/usuarioModel");
 
-const createusuario = (req, res) => {
+const createUsuario = (req, res) => {
     const { rut } = req.body;
     const newUsuario = new Usuario({
         rut
@@ -13,3 +13,17 @@ const createusuario = (req, res) => {
         return res.status(201).send(usuario);
     });
 };
+
+const getUsuarios = (req, res) => {
+    Usuario.find({}, (err, usuario) => {
+        if (err) {
+            return res.status(400).send({ message: "Error al obtener los usuarios" });
+        }
+        return res.status(200).send(usuario);
+    });
+};
+
+module.exports = {
+    createUsuario,
+    getUsuarios,
+}

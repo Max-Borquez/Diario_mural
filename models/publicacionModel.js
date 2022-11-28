@@ -14,8 +14,8 @@ const PublicacionSchema = new Schema({
     required: true,
   },
   rut: {
-    type: String,
-    required: true,
+    type: Schema.ObjectId,
+    ref: "usuario",
   },
   correo: {
     type: String,
