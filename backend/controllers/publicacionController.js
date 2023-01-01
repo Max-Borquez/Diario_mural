@@ -56,10 +56,24 @@ const deletePublicacion = (req, res) => {
   });
 };
 
+const getSpecificPublicacion = (req, res) => {
+  const { id } = req.params;
+  Publicacion.findById(id).populate({ path: 'category' }).exec((err, publicacion) => {
+      if (err) {
+          return res.status(400).send({ message: "Error al obtener la publicacion" })
+      }
+      if (!publicacion) {
+          return res.status(404).send({ message: "Publicacion no encontrada" })
+      }
+      return res.status(200).send(publicacion)
+  })
+}
+
 module.exports = {
   createPublicacion,
   getPublicaciones,
   updatePublicacion,
-  deletePublicacion
+  deletePublicacion,
+  getSpecificPublicacion
 };
 

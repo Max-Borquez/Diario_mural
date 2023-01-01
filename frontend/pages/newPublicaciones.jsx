@@ -3,14 +3,16 @@ import { Button,Container,Heading,HStack,Input,Stack,FormControl, FormLabel, Tex
 import { createPublicacion } from '../data/publicaciones'
 import InputForm from '/components/InputForm'
 import TextareaInput from '../components/TextareaInput'
+import { useRouter } from 'next/router'
 
 const publicaciones = () => {
+    const router = useRouter()
     const [publicacion, setPublicacion] = useState({
-          titulo: "",
-          autor: "",
-          descripcion: "",
-          correo: "",
-          domicilio: ""
+        titulo: "",
+        autor: "",
+        descripcion: "",
+        correo: "",
+        domicilio: ""
     })
 
     const handleChange = (e) => {
@@ -37,7 +39,10 @@ const publicaciones = () => {
                 <InputForm label="Correo" handleChange={handleChange} name="correo" placeholder="Correo" type="text" value={publicacion.correo}/>
                 <InputForm label="Domicilio" handleChange={handleChange} name="domicilio" placeholder="domicilio" type="text" value={publicacion.domicilio}/>
             </Stack>
-            <Button colorScheme="cyan" mt="10" mb="10" onClick={submitPublicacion} >Crear</Button>
+            <HStack>
+                <Button colorScheme="cyan" mt="10" mb="10" onClick={submitPublicacion} >Crear</Button>
+                <Button colorScheme="red" mt={10} mb={10} onClick={() => router.push('/')}>Cancelar</Button>
+            </HStack>
         </Container>
     )
 }

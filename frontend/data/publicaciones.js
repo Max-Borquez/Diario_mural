@@ -12,7 +12,20 @@ const createPublicacion = async (publicacion) => {
 
 }
 
+const getPublicacion = async (id) => {
+    console.log(id)
+    const response = await axios.get(`${process.env.SERVIDOR}/publicacion/search/${id}`);
+    return response
+}
+
+const updatePublicacion = (id, publicacion) => {
+    console.log(id)
+    const response = axios.put(`${process.env.SERVIDOR}/publicacion/update/${id}`, publicacion);
+    return response
+}
 module.exports = {
     getPublicaciones,
-    createPublicacion
+    createPublicacion,
+    getPublicacion,
+    updatePublicacion
 }
