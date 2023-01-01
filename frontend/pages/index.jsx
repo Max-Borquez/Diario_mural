@@ -27,7 +27,14 @@ const index = () => {
           <Td>{publicacion.descripcion}</Td>
           <Td>{publicacion.correo}</Td>
           <Td>{publicacion.domicilio}</Td>
+          <Td>
+            <HStack>
+              <Button colorScheme="orange" onClick={() => router.push(`../publicacion/ver/${publicacion._id}`)}>Ver</Button>
+              <Button colorScheme="cyan" onClick={() => router.push(`../publicacion/actualizar/${publicacion._id}`)}>Editar</Button>
+            </HStack>
+          </Td>
         </Tr>
+
       );
     });
   }
@@ -52,6 +59,7 @@ const index = () => {
                 <Td>descripcion</Td>
                 <Td>correo</Td>
                 <Td>domicilio</Td>
+                <Td>Acciones</Td>
               </Tr>
             </Thead>
             <Tbody>
