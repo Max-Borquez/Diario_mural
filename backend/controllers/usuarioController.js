@@ -23,7 +23,21 @@ const getUsuarios = (req, res) => {
     });
 };
 
+const deleteUsuario = (req, res) => {
+    const { id } = req.params;
+    Usuario.findByIdAndDelete(id, (err, usuario) => {
+      if (err) {
+        return res.status(400).send({ message: "Error al obtener el usuario" });
+      }
+      if(!usuario) {
+        return res.status(404).send({ message: "Usuario no encontrado" });
+      }
+      return res.status(200).send(usuario);
+    });
+  };
+
 module.exports = {
     createUsuario,
     getUsuarios,
+    deleteUsuario
 };

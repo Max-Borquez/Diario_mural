@@ -34,11 +34,11 @@ const editar = ({ data }) => {
         if (response.status === 200) {
             Swal.fire({
                 icon: 'success',
-                title: 'Producto actualizado',
+                title: 'Publicacion actualizado',
                 showConfirmButton: true,
                 text: 'La publicacion se actualizó correctamente'
             }).then(() => {
-                router.push('/')
+                router.push('/publicaciones')
             })
         } else {
             Swal.fire({
@@ -62,7 +62,7 @@ const editar = ({ data }) => {
             </Stack>
             <HStack>
                 <Button colorScheme="cyan" mt="10" mb="10" onClick={submitPublicacion}>Actualizar</Button>
-                <Button colorScheme="red" mt={10} mb={10} onClick={() => router.push('/')}>Cancelar</Button>
+                <Button colorScheme="red" mt={10} mb={10} onClick={() => router.push('/publicaciones')}>Volver</Button>
             </HStack>
             
         </Container>

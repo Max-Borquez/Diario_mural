@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { Button,Container,Heading,HStack,Input,Stack,FormControl, FormLabel, Textarea } from "@chakra-ui/react";
-import { createPublicacion } from '../data/publicaciones'
+import { createPublicacion } from '../../data/publicaciones'
 import InputForm from '/components/InputForm'
-import TextareaInput from '../components/TextareaInput'
+import TextareaInput from '../../components/TextareaInput'
 import { useRouter } from 'next/router'
+import Swal from 'sweetalert2'
 
-const publicaciones = () => {
+const crear = () => {
     const router = useRouter()
     const [publicacion, setPublicacion] = useState({
         titulo: "",
@@ -22,11 +23,29 @@ const publicaciones = () => {
         })
     }
 
-    const submitPublicacion = (e) => {
+    const submitPublicacion = async (e) => {
         e.preventDefault()
-        createPublicacion(publicacion).then(res => {
-            console.log(res)
-        })
+        //createPublicacion(publicacion).then(res => {
+        //    console.log(res)
+        //})
+        const response = await createPublicacion(publicacion)
+        if (response.status === 201) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Publicacion creada',
+                showConfirmButton: true,
+                text: 'La publicacion se creó correctamente'
+            }).then(() => {
+                router.push('/publicaciones')
+            })
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                showConfirmButton: true,
+                text: 'Ocurrió un error al crear la publicacion'
+            })
+        }
     }
 
     return (
@@ -41,7 +60,7 @@ const publicaciones = () => {
             </Stack>
             <HStack>
                 <Button colorScheme="cyan" mt="10" mb="10" onClick={submitPublicacion} >Crear</Button>
-                <Button colorScheme="red" mt={10} mb={10} onClick={() => router.push('/')}>Cancelar</Button>
+                <Button colorScheme="red" mt={10} mb={10} onClick={() => router.push('/publicaciones')}>Volver</Button>
             </HStack>
         </Container>
     )
@@ -49,4 +68,4 @@ const publicaciones = () => {
 
 
 
-export default publicaciones
+export default crear
