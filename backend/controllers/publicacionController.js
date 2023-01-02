@@ -69,11 +69,16 @@ const getSpecificPublicacion = (req, res) => {
   })
 }
 
+const login = (req, res) => {
+  return res.status(200).send({ message: "Se ha logeado correctamente"})
+}
+
 module.exports = {
   createPublicacion,
   getPublicaciones,
   updatePublicacion,
   deletePublicacion,
-  getSpecificPublicacion
+  getSpecificPublicacion,
+  login
 };
 
