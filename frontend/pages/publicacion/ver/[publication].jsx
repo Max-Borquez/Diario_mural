@@ -61,7 +61,7 @@ const ver = ({ data }) => {
                 </Stack>
             </CardBody>
             </Card>
-            <Button colorScheme="red" mt={10} mb={10} onClick={() => router.push('/publicaciones')}>Volver</Button>
+            <Button colorScheme="red" mt={10} mb={10} onClick={() => router.push('/')}>Volver</Button>
         </Container>
     )
 }

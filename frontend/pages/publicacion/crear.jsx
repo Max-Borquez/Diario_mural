@@ -36,7 +36,7 @@ const crear = () => {
                 showConfirmButton: true,
                 text: 'La publicacion se creó correctamente'
             }).then(() => {
-                router.push('/publicaciones')
+                router.push('/')
             })
         } else {
             Swal.fire({
@@ -56,11 +56,11 @@ const crear = () => {
                 <InputForm label="Autor" handleChange={handleChange} name="autor" placeholder="Autor" type="text" value={publicacion.autor}/>
                 <TextareaInput label="Descripcion" handleChange={handleChange} name="descripcion" placeholder="Descripcion" type="text" value={publicacion.descripcion}/>
                 <InputForm label="Correo" handleChange={handleChange} name="correo" placeholder="Correo" type="text" value={publicacion.correo}/>
-                <InputForm label="Domicilio" handleChange={handleChange} name="domicilio" placeholder="domicilio" type="text" value={publicacion.domicilio}/>
+                <InputForm label="Domicilio" handleChange={handleChange} name="domicilio" placeholder="Domicilio" type="text" value={publicacion.domicilio}/>
             </Stack>
             <HStack>
                 <Button colorScheme="cyan" mt="10" mb="10" onClick={submitPublicacion} >Crear</Button>
-                <Button colorScheme="red" mt={10} mb={10} onClick={() => router.push('/publicaciones')}>Volver</Button>
+                <Button colorScheme="red" mt={10} mb={10} onClick={() => router.push('/')}>Volver</Button>
             </HStack>
         </Container>
     )

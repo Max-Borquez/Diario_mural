@@ -14,11 +14,11 @@
     "@emotion/styled": "^11.10.5",
     "@next/font": "13.1.1",
     "axios": "^1.2.2",
-    "eslint": "8.31.0",
+    "eslint": "^8.31.0",
     "eslint-config-next": "13.1.1",
     "framer-motion": "^8.0.2",
-    "next": "13.1.1",
-    "react": "18.2.0",
+    "next": "^13.1.1",
+    "react": "^18.2.0",
     "react-dom": "18.2.0",
     "sweetalert2": "^11.6.16"
   }

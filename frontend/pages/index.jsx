@@ -1,40 +1,70 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { FormControl, FormLabel, Button,Container,Heading,HStack,Input,Stack,Table,Thead,Tr,Td,Th,Tbody } from "@chakra-ui/react";
+import { Button,Container,Heading,HStack,Input,Stack,Table,Thead,Tr,Td,Th,Tbody } from "@chakra-ui/react";
 import { getPublicaciones } from '../data/publicaciones';
 import { useRouter } from 'next/router'
-import { login } from  '../data/user'
 
-const index = () => {
-  const [rut, setRUT] = useState('')
+const publicaciones = () => {
+  const [publicaciones, setPublicaciones] = useState([
+    {
+      id: "",
+      titulo: "",
+      autor: "",
+      descripcion: "",
+      correo: "",
+      domicilio: ""
+    }
+  ]);
+
   const router = useRouter()
 
-  const handleChange = (e) => {
-    setRUT(e.target.value)
+  const contentTable = () => {
+    return publicaciones.map((publicacion) => {
+      return (
+        <Tr key={publicacion._id}>
+          <Td>{publicacion.titulo}</Td>
+          <Td>{publicacion.autor}</Td>
+          <Td>{publicacion.domicilio}</Td>
+          <Td>
+            <HStack>
+              <Button colorScheme="orange" onClick={() => router.push(`../publicacion/ver/${publicacion._id}`)}>Ver</Button>
+              <Button colorScheme="cyan" onClick={() => router.push(`../publicacion/actualizar/${publicacion._id}`)}>Editar</Button>
+            </HStack>
+          </Td>
+        </Tr>
+
+      );
+    });
   }
 
-  const onSubmit = async (e) => {
-    e.preventDefault()
-    const response = await login(rut)
-    if(response.status === 200) {
-      localStorage.setItem('token', rut)
-      router.push('./publicaciones')
-    }
-  }
+  useEffect(() => {
+    getPublicaciones().then(res => {
+      setPublicaciones(res.data)
+    })
+  }, []);
 
   return (
     <>
-      <Container maxW="container.xl" centerContent>
-        <Heading as="h1" size="2xl" textAlign="center" mt="10">Login</Heading>
-        <Stack my={5}>
-          <FormControl>
-            <FormLabel>Rut del usuario</FormLabel>
-            <Input onChange={handleChange} />
-          </FormControl>
-          <Button onClick={onSubmit}>Ingresar</Button>
+      <Container maxW="container.xl">
+        <Heading as="h1" size="2xl" textAlign="center" mt="10">Listado de publicaciones</Heading>
+        <Button colorScheme="cyan" mt="10" mb="10" onClick={() => router.push(`../publicacion/crear`)}>Agregar publicacion</Button>
+        <Stack spacing={4} mt="10">
+          <Table variant="simple">
+            <Thead>
+              <Tr>
+                <Td>Titulo</Td>
+                <Td>autor</Td>
+                <Td>domicilio</Td>
+                <Td>Acciones</Td>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {contentTable()}
+            </Tbody>
+          </Table>
         </Stack>
       </Container>
     </>
   );
 };
-export default index;
+export default publicaciones;
